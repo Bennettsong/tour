@@ -1,500 +1,186 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>一家四口 5 日游 · 香港 + 曼谷 + 普吉岛完美攻略</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css" />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              thai: {
-                gold: '#D4A64A',
-                deepgold: '#B8860B',
-                red: '#C8102E',
-                teal: '#0D9488',
-                sand: '#FBF5E9',
-                cream: '#FDF8EF',
-                ink: '#1F2937'
-              }
-            },
-            fontFamily: {
-              serif: ['"Noto Serif SC"', 'serif'],
-              sans: ['"Noto Sans SC"', 'sans-serif']
-            }
-          }
-        }
-      }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>南昆山 · 周末森呼吸之旅 | 深圳出发自驾行程</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif SC"', 'serif'],
+            sans: ['"Noto Sans SC"', 'sans-serif'],
+          },
+          colors: {
+            forest: { 50:'#f0f7f2', 100:'#dcefe2', 600:'#2f7d4f', 700:'#25693f', 800:'#1d5232', 900:'#163d26' },
+            accent: { 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706' },
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans SC', sans-serif; }
+    .font-serif { font-family: 'Noto Serif SC', serif; }
+    @keyframes floaty { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-10px);} }
+    @keyframes fadeUp { from{ opacity:0; transform: translateY(24px);} to{ opacity:1; transform: translateY(0);} }
+    .animate-fade-up { animation: fadeUp .7s cubic-bezier(.22,.61,.36,1) both; }
+    .animate-floaty { animation: floaty 5s ease-in-out infinite; }
+    .reveal { opacity:0; transform: translateY(26px); transition: all .8s cubic-bezier(.22,.61,.36,1); }
+    .reveal.visible { opacity:1; transform: translateY(0); }
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: #f0f7f2; }
+    ::-webkit-scrollbar-thumb { background: #2f7d4f; border-radius: 9999px; }
+    .timeline-line { background: linear-gradient(to bottom, #2f7d4f, #f59e0b); }
+    .text-shadow { text-shadow: 0 2px 20px rgba(0,0,0,.55); }
+  </style>
 </head>
-<body class="font-sans text-thai-ink bg-thai-cream">
-    <!-- 顶部导航 -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/0">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-plane-departure text-thai-gold text-2xl"></i>
-          <span class="font-serif text-xl font-bold text-white nav-title transition-colors">港泰家庭旅行</span>
+<body class="bg-[#fbfaf6] text-stone-800 antialiased overflow-x-hidden">
+
+  <!-- 顶部导航 -->
+  <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-white/70 border-b border-emerald-900/10">
+    <nav class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600 to-forest-800 grid place-items-center text-white text-lg">🌿</span>
+        <div class="leading-tight">
+          <p class="font-serif font-bold text-forest-800 text-lg">南昆山 · 森呼吸</p>
+          <p class="text-[11px] text-stone-500 -mt-0.5">深圳出发 3天2晚自驾</p>
         </div>
-        <ul class="hidden md:flex items-center gap-7 text-sm font-medium">
-          <li><a href="#overview" class="nav-link text-white hover:text-thai-gold transition">总览</a></li>
-          <li><a href="#flights" class="nav-link text-white hover:text-thai-gold transition">机票住宿</a></li>
-          <li><a href="#hongkong" class="nav-link text-white hover:text-thai-gold transition">香港</a></li>
-          <li><a href="#bangkok" class="nav-link text-white hover:text-thai-gold transition">曼谷</a></li>
-          <li><a href="#phuket" class="nav-link text-white hover:text-thai-gold transition">普吉</a></li>
-          <li><a href="#food" class="nav-link text-white hover:text-thai-gold transition">美食</a></li>
-          <li><a href="#budget" class="nav-link text-white hover:text-thai-gold transition">预算</a></li>
-          <li><a href="#tips" class="nav-link text-white hover:text-thai-gold transition">贴士</a></li>
-        </ul>
-        <button id="menuBtn" class="md:hidden text-white text-xl"><i class="fa-solid fa-bars"></i></button>
       </div>
-      <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
-        <ul class="flex flex-col p-4 gap-3 text-sm">
-          <li><a href="#overview" class="block py-2">总览</a></li>
-          <li><a href="#flights" class="block py-2">机票住宿</a></li>
-          <li><a href="#hongkong" class="block py-2">香港</a></li>
-          <li><a href="#bangkok" class="block py-2">曼谷</a></li>
-          <li><a href="#phuket" class="block py-2">普吉</a></li>
-          <li><a href="#food" class="block py-2">美食</a></li>
-          <li><a href="#budget" class="block py-2">预算</a></li>
-          <li><a href="#tips" class="block py-2">贴士</a></li>
-        </ul>
+      <div class="hidden md:flex items-center gap-7 text-sm text-stone-600">
+        <a href="#overview" class="hover:text-forest-700 transition">行程概览</a>
+        <a href="#itinerary" class="hover:text-forest-700 transition">三日行程</a>
+        <a href="#spots" class="hover:text-forest-700 transition">景点打卡</a>
+        <a href="#food" class="hover:text-forest-700 transition">美食山货</a>
+        <a href="#tips" class="hover:text-forest-700 transition">实用贴士</a>
       </div>
+      <a href="#itinerary" class="hidden sm:inline-flex items-center gap-1.5 bg-forest-700 hover:bg-forest-800 text-white text-sm font-medium px-4 py-2 rounded-full transition shadow-lg shadow-emerald-900/20">
+        开始计划 <span>→</span>
+      </a>
     </nav>
+  </header>
 
-    <!-- Hero 区域 -->
-    <header class="relative h-screen min-h-[640px] overflow-hidden">
-      <div class="absolute inset-0 hero-bg"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70"></div>
-      <div class="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-        <div class="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm">
-          <i class="fa-solid fa-heart text-thai-gold"></i>
-          <span>一家四口 · 5 天 4 夜 · 3 城连游</span>
-        </div>
-        <h1 class="font-serif text-5xl md:text-7xl font-black leading-tight mb-6 drop-shadow-2xl">
-          <span class="block">香港 · 曼谷 · 普吉</span>
-          <span class="block text-thai-gold mt-2">4.30 - 5.4 家庭之旅</span>
+  <!-- 主视觉 -->
+  <section id="top" class="relative min-h-[92vh] flex items-end">
+    <img id="heroImg" src="https://assets.with.tencent.com/default/0150a6ed-8ea3-4b21-a81b-ca59060e99f0/image_1787112898_1_1.jpg"
+         alt="南昆山国家森林公园" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
+    <div class="relative max-w-7xl mx-auto px-5 pb-24 pt-32 w-full">
+      <div class="animate-fade-up">
+        <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md text-white/95 text-xs font-medium px-4 py-1.5 rounded-full border border-white/20">
+          📅 2026.8.21（周五）— 8.23（周日） · 惠州龙门
+        </span>
+        <h1 class="font-serif text-white text-shadow text-4xl md:text-6xl lg:text-7xl font-black mt-5 leading-tight">
+          去南昆山<br class="sm:hidden" />赴一场<span class="text-accent-400">森呼吸</span>之约
         </h1>
-        <p class="max-w-2xl text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-          从维港璀璨夜色到湄南河畔金色寺庙<br/>
-          再到普吉碧海白沙，为一家四口量身定制的温情慢游
+        <p class="text-white/85 text-shadow mt-5 max-w-2xl text-base md:text-lg leading-relaxed">
+          北回归线上的绿洲、珠三角的天然氧吧。从深圳出发约 2.5 小时车程，泡山间温泉、看飞瀑竹海，
+          用三天两晚，把一周的疲惫都留在山风里。
         </p>
-        <div class="flex flex-wrap gap-4 justify-center">
-          <a href="#overview" class="px-8 py-3 bg-thai-gold hover:bg-thai-deepgold text-white rounded-full font-semibold shadow-xl transition transform hover:-translate-y-1">
-            <i class="fa-solid fa-map-location-dot mr-2"></i>查看行程
-          </a>
-          <a href="#tips" class="px-8 py-3 bg-white/10 backdrop-blur border border-white/30 text-white rounded-full font-semibold hover:bg-white/20 transition">
-            <i class="fa-solid fa-lightbulb mr-2"></i>实用贴士
-          </a>
-        </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <i class="fa-solid fa-chevron-down text-2xl text-white/70"></i>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a href="#itinerary" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-medium px-6 py-3 rounded-full transition shadow-xl shadow-amber-900/30">查看完整行程</a>
+          <a href="#spots" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-medium px-6 py-3 rounded-full border border-white/30 transition">热门景点</a>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- 行程总览 -->
-    <section id="overview" class="py-20 px-6 bg-thai-cream">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-          <p class="text-thai-gold font-semibold tracking-widest text-sm mb-2">ITINERARY OVERVIEW</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">5 天行程总览</h2>
-          <div class="w-20 h-1 bg-thai-gold mx-auto"></div>
-          <p class="max-w-2xl mx-auto mt-6 text-gray-600 leading-relaxed">
-            香港 1 天 · 曼谷 2 天 · 普吉岛 2 天。节奏松弛，兼顾文化、美食、海岛，特别关照父母体力。
-          </p>
+  <!-- 概览统计 -->
+  <section id="overview" class="relative -mt-16 z-10">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+        <div class="bg-white rounded-2xl shadow-lg shadow-emerald-900/5 p-5 text-center reveal">
+          <div class="text-2xl">🚗</div>
+          <p class="text-xs text-stone-500 mt-2">出发地</p>
+          <p class="font-bold text-forest-800 mt-0.5">深圳</p>
         </div>
-
-        <!-- 家庭成员卡 -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          <div class="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition text-center border-t-4 border-thai-gold">
-            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-thai-gold/10 flex items-center justify-center">
-              <i class="fa-solid fa-person text-thai-gold text-2xl"></i>
-            </div>
-            <h4 class="font-bold">先生（您）</h4>
-            <p class="text-xs text-gray-500 mt-1">30 岁 · 行程主规划</p>
-          </div>
-          <div class="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition text-center border-t-4 border-pink-400">
-            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-pink-100 flex items-center justify-center">
-              <i class="fa-solid fa-person-dress text-pink-500 text-2xl"></i>
-            </div>
-            <h4 class="font-bold">太太</h4>
-            <p class="text-xs text-gray-500 mt-1">30 岁 · 美食拍照担当</p>
-          </div>
-          <div class="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition text-center border-t-4 border-blue-400">
-            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-blue-100 flex items-center justify-center">
-              <i class="fa-solid fa-user-tie text-blue-500 text-2xl"></i>
-            </div>
-            <h4 class="font-bold">父亲</h4>
-            <p class="text-xs text-gray-500 mt-1">58 岁 · 关注防晒饮食</p>
-          </div>
-          <div class="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition text-center border-t-4 border-purple-400">
-            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-purple-100 flex items-center justify-center">
-              <i class="fa-solid fa-user text-purple-500 text-2xl"></i>
-            </div>
-            <h4 class="font-bold">母亲</h4>
-            <p class="text-xs text-gray-500 mt-1">58 岁 · 慢行节奏</p>
-          </div>
+        <div class="bg-white rounded-2xl shadow-lg shadow-emerald-900/5 p-5 text-center reveal">
+          <div class="text-2xl">⛰️</div>
+          <p class="text-xs text-stone-500 mt-2">目的地</p>
+          <p class="font-bold text-forest-800 mt-0.5">南昆山国家森林公园</p>
         </div>
-
-        <!-- 时间轴 -->
-        <div id="timelineGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5"></div>
-      </div>
-    </section>
-
-    <!-- 机票 + 住宿 -->
-    <section id="flights" class="py-20 px-6 bg-white">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-          <p class="text-thai-red font-semibold tracking-widest text-sm mb-2">FLIGHTS & HOTELS</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">机票 & 住宿信息</h2>
-          <div class="w-20 h-1 bg-thai-red mx-auto"></div>
+        <div class="bg-white rounded-2xl shadow-lg shadow-emerald-900/5 p-5 text-center reveal">
+          <div class="text-2xl">🕑</div>
+          <p class="text-xs text-stone-500 mt-2">自驾车程</p>
+          <p class="font-bold text-forest-800 mt-0.5">约 2~2.5 小时</p>
         </div>
-
-        <!-- 机票 -->
-        <div class="mb-12">
-          <h3 class="font-serif text-2xl font-bold mb-6 flex items-center gap-2">
-            <i class="fa-solid fa-plane text-thai-gold"></i>航班安排
-          </h3>
-          <div id="flightList" class="space-y-4"></div>
+        <div class="bg-white rounded-2xl shadow-lg shadow-emerald-900/5 p-5 text-center reveal">
+          <div class="text-2xl">🗓️</div>
+          <p class="text-xs text-stone-500 mt-2">行程天数</p>
+          <p class="font-bold text-forest-800 mt-0.5">3 天 2 晚</p>
         </div>
-
-        <!-- 酒店 -->
-        <div>
-          <h3 class="font-serif text-2xl font-bold mb-6 flex items-center gap-2">
-            <i class="fa-solid fa-hotel text-thai-red"></i>住宿安排
-          </h3>
-          <div id="hotelList" class="grid md:grid-cols-2 gap-6"></div>
+        <div class="bg-white rounded-2xl shadow-lg shadow-emerald-900/5 p-5 text-center reveal col-span-2 md:col-span-1">
+          <div class="text-2xl">🎒</div>
+          <p class="text-xs text-stone-500 mt-2">主题</p>
+          <p class="font-bold text-forest-800 mt-0.5">森林 · 温泉 · 休闲</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 香港 -->
-    <section id="hongkong" class="py-20 px-6 bg-gradient-to-br from-rose-50 to-red-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-10 items-center mb-16">
-          <div>
-            <p class="text-thai-red font-semibold tracking-widest text-sm mb-2">DAY 1 · HONG KONG · 香港</p>
-            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">东方之珠 · 一日都市游</h2>
-            <p class="text-gray-700 leading-relaxed mb-6">
-              深圳出发过关赴港，铜锣湾寄存行李后一日精华游：港式早茶、太平山顶、维港渡轮，夜航飞往曼谷。节奏紧凑但不赶。
-            </p>
-            <div class="grid grid-cols-3 gap-3 text-center">
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-red">深圳</p>
-                <p class="text-xs text-gray-500 mt-1">高铁 15 分钟</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-red">HKD</p>
-                <p class="text-xs text-gray-500 mt-1">1港币≈0.92元</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-red">21:30</p>
-                <p class="text-xs text-gray-500 mt-1">HKG T1 飞曼谷</p>
-              </div>
-            </div>
-          </div>
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl h-80 lg:h-[420px]">
-            <img src="https://zhiyan-ai-agent-with-1258344702.cos.ap-guangzhou.tencentcos.cn/copilot/5a3d68b9-1fc1-4453-a7a8-68abce6d9780/1c2737af2980476095c4394a739ee581.png" class="w-full h-full object-cover" alt="香港太平山"/>
-            <div class="absolute bottom-6 left-6 text-white">
-              <p class="text-xs uppercase tracking-widest opacity-80">Victoria Peak</p>
-              <p class="font-serif text-2xl font-bold">太平山顶 · 维港全景</p>
-            </div>
-          </div>
-        </div>
+  <!-- 三日行程时间轴 -->
+  <section id="itinerary" class="max-w-7xl mx-auto px-5 py-20">
+    <div class="text-center mb-12 reveal">
+      <span class="text-xs font-semibold tracking-widest text-accent-600 uppercase">Itinerary</span>
+      <h2 class="font-serif text-3xl md:text-5xl font-black text-forest-800 mt-3">三日游玩行程</h2>
+      <p class="text-stone-500 mt-3 max-w-xl mx-auto">从周五出发到周日返程，节奏松弛有度，不赶路、不打卡式奔波。</p>
+    </div>
+    <div id="timeline" class="relative"></div>
+  </section>
 
-        <!-- Day 1 -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-          <div class="bg-gradient-to-r from-thai-red to-rose-600 text-white px-8 py-5 flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <p class="text-sm opacity-90">DAY 1 · 4月30日 · 周三</p>
-              <h3 class="font-serif text-2xl font-bold">港岛一日精华游 · 夜飞曼谷</h3>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🌃 都市</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🥟 美食</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">✈️ 夜航</span>
-            </div>
-          </div>
-          <div id="day1Schedule" class="p-6 md:p-8"></div>
-        </div>
+  <!-- 景点打卡 -->
+  <section id="spots" class="bg-gradient-to-b from-[#f0f7f2] to-[#fbfaf6] py-20">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center mb-12 reveal">
+        <span class="text-xs font-semibold tracking-widest text-accent-600 uppercase">Must Visit</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-black text-forest-800 mt-3">八大必打卡景点</h2>
+        <p class="text-stone-500 mt-3">山水瀑布、竹海温泉，一次集齐南昆山精华。</p>
       </div>
-    </section>
+      <div id="spotsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+    </div>
+  </section>
 
-    <!-- 曼谷 -->
-    <section id="bangkok" class="py-20 px-6 bg-gradient-to-br from-amber-50 to-orange-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-10 items-center mb-16">
-          <div>
-            <p class="text-thai-gold font-semibold tracking-widest text-sm mb-2">DAY 2-3 · BANGKOK · 曼谷</p>
-            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">金色之城 · 两日人文深度游</h2>
-            <p class="text-gray-700 leading-relaxed mb-6">
-              住在吞武里 Bangkok Yai，紧邻大皇宫、卧佛寺、郑王庙三大顶级景点，步行或 Grab 几分钟就到。夜游湄南河 + 水上市场 + SPA，节奏张弛有度。
-            </p>
-            <div class="grid grid-cols-3 gap-3 text-center">
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-gold">33-38°</p>
-                <p class="text-xs text-gray-500 mt-1">五一前后最热</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-gold">+1h</p>
-                <p class="text-xs text-gray-500 mt-1">与北京时差</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-gold">THB</p>
-                <p class="text-xs text-gray-500 mt-1">泰铢 ≈0.2元</p>
-              </div>
-            </div>
-          </div>
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl h-80 lg:h-[420px]">
-            <img src="https://zhiyan-ai-agent-with-1258344702.cos.ap-guangzhou.tencentcos.cn/copilot/ebb33b25-d5c0-4d32-bdb2-e84baf5ec906/9f78f4c0785848b39da64c61b88af81f.png" class="w-full h-full object-cover" alt="曼谷大皇宫"/>
-            <div class="absolute bottom-6 left-6 text-white">
-              <p class="text-xs uppercase tracking-widest opacity-80">Grand Palace</p>
-              <p class="font-serif text-2xl font-bold">大皇宫 · 玉佛寺</p>
-            </div>
-          </div>
-        </div>
+  <!-- 美食与山货 -->
+  <section id="food" class="max-w-7xl mx-auto px-5 py-20">
+    <div class="text-center mb-12 reveal">
+      <span class="text-xs font-semibold tracking-widest text-accent-600 uppercase">Taste</span>
+      <h2 class="font-serif text-3xl md:text-5xl font-black text-forest-800 mt-3">山野风味 · 不容错过</h2>
+      <p class="text-stone-500 mt-3">客家风味的山野食材，是这趟旅程的另一半灵魂。</p>
+    </div>
+    <div id="foodGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-4"></div>
+  </section>
 
-        <!-- Day 2 -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden mb-10">
-          <div class="bg-gradient-to-r from-thai-red to-amber-600 text-white px-8 py-5 flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <p class="text-sm opacity-90">DAY 2 · 5月1日 · 周四</p>
-              <h3 class="font-serif text-2xl font-bold">皇家寺庙之旅 · 湄南夜景</h3>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🙏 文化</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">📸 拍照</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🛥️ 游船</span>
-            </div>
-          </div>
-          <div id="day2Schedule" class="p-6 md:p-8"></div>
-        </div>
-
-        <!-- Day 3 -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-          <div class="bg-gradient-to-r from-amber-600 to-thai-gold text-white px-8 py-5 flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <p class="text-sm opacity-90">DAY 3 · 5月2日 · 周五</p>
-              <h3 class="font-serif text-2xl font-bold">水上市场 · SPA · 飞普吉</h3>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🛶 体验</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">💆 SPA</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">✈️ 廊曼</span>
-            </div>
-          </div>
-          <div id="day3Schedule" class="p-6 md:p-8"></div>
-        </div>
+  <!-- 实用贴士 -->
+  <section id="tips" class="bg-forest-800 py-20 text-white">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center mb-12 reveal">
+        <span class="text-xs font-semibold tracking-widest text-accent-400 uppercase">Tips</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-black mt-3">出发前实用贴士</h2>
+        <p class="text-white/70 mt-3">让旅程更从容的小细节，都帮你整理好了。</p>
       </div>
-    </section>
+      <div id="tipsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+  </section>
 
-    <!-- 普吉岛 -->
-    <section id="phuket" class="py-20 px-6 bg-gradient-to-br from-cyan-50 to-blue-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-10 items-center mb-16">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl h-80 lg:h-[420px] order-last lg:order-first">
-            <img src="https://zhiyan-ai-agent-with-1258344702.cos.ap-guangzhou.tencentcos.cn/copilot/63ca5d02-97c7-460c-9f8c-b0d8565adf8c/85b32cf320c446ba80c62b7970ea8b92.png" class="w-full h-full object-cover" alt="PP岛"/>
-            <div class="absolute bottom-6 left-6 text-white">
-              <p class="text-xs uppercase tracking-widest opacity-80">Phi Phi Islands</p>
-              <p class="font-serif text-2xl font-bold">PP 岛 · 玛雅湾</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-thai-teal font-semibold tracking-widest text-sm mb-2">DAY 4-5 · PHUKET · 普吉岛</p>
-            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">蓝色度假岛 · 两日海岛风情</h2>
-            <p class="text-gray-700 leading-relaxed mb-6">
-              住在 Sunset Plaza · Karon，紧邻卡伦海滩，比巴东安静。PP 岛跳岛 + 大佛观景 + 老城漫步，以慢游节奏感受海岛魅力。
-            </p>
-            <div class="grid grid-cols-3 gap-3 text-center">
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-teal">28-34°</p>
-                <p class="text-xs text-gray-500 mt-1">海风舒适</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-teal">Karon</p>
-                <p class="text-xs text-gray-500 mt-1">卡伦海滩</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow">
-                <p class="text-2xl font-bold text-thai-teal">22:05</p>
-                <p class="text-xs text-gray-500 mt-1">HKT 起飞返程</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Day 4 -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden mb-10">
-          <div class="bg-gradient-to-r from-thai-teal to-cyan-500 text-white px-8 py-5 flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <p class="text-sm opacity-90">DAY 4 · 5月3日 · 周六</p>
-              <h3 class="font-serif text-2xl font-bold">PP 岛跳岛 · 浮潜玩海</h3>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🏝️ 海岛</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🐠 浮潜</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">☀️ 防晒</span>
-            </div>
-          </div>
-          <div id="day4Schedule" class="p-6 md:p-8"></div>
-        </div>
-
-        <!-- Day 5 -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-          <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-5 flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <p class="text-sm opacity-90">DAY 5 · 5月4日 · 周日</p>
-              <h3 class="font-serif text-2xl font-bold">大佛祈福 · 老城漫游 · 返程</h3>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🛕 祈福</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🏛️ 文艺</span>
-              <span class="px-3 py-1 bg-white/20 rounded-full text-xs">🛫 返程</span>
-            </div>
-          </div>
-          <div id="day5Schedule" class="p-6 md:p-8"></div>
-        </div>
+  <!-- 页脚 -->
+  <footer class="bg-[#101d15] text-white/60 py-10">
+    <div class="max-w-7xl mx-auto px-5 text-center space-y-3">
+      <div class="flex items-center justify-center gap-2 text-white/90">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-forest-800 grid place-items-center">🌿</span>
+        <span class="font-serif font-bold text-white">南昆山 · 森呼吸之旅</span>
       </div>
-    </section>
+      <p class="text-sm">愿你此行，山风入怀，温泉暖心，满载而归。</p>
+      <p class="text-xs text-white/40">行程仅供参考，具体开放时间与门票请以景区当日公告为准。</p>
+      <p>由 <a href="https://with.woa.com/" style="color: #8A2BE2;" target="_blank">With</a> 通过自然语言生成</p>
+    </div>
+  </footer>
 
-    <!-- 美食 -->
-    <section id="food" class="py-20 px-6 bg-thai-cream">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-          <p class="text-thai-red font-semibold tracking-widest text-sm mb-2">FOOD GUIDE</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">港泰美食不踩雷</h2>
-          <div class="w-20 h-1 bg-thai-red mx-auto"></div>
-          <p class="max-w-2xl mx-auto mt-6 text-gray-600">
-            考虑父母口味偏清淡，标注"清淡" / "微辣" / "尝鲜"三档，丰俭自选
-          </p>
-        </div>
-        <div id="foodGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-      </div>
-    </section>
-
-    <!-- 预算 -->
-    <section id="budget" class="py-20 px-6 bg-gradient-to-br from-amber-50 via-white to-orange-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-          <p class="text-thai-gold font-semibold tracking-widest text-sm mb-2">BUDGET</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">预算参考（一家四口 5 日）</h2>
-          <div class="w-20 h-1 bg-thai-gold mx-auto"></div>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-6 mb-10" id="budgetCards"></div>
-
-        <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10">
-          <h3 class="font-serif text-2xl font-bold mb-6 flex items-center gap-2">
-            <i class="fa-solid fa-chart-pie text-thai-gold"></i>支出明细表
-          </h3>
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm" id="budgetTable">
-              <thead>
-                <tr class="bg-thai-gold/10 text-thai-deepgold">
-                  <th class="px-4 py-3 text-left">项目</th>
-                  <th class="px-4 py-3 text-left">单价参考（人民币）</th>
-                  <th class="px-4 py-3 text-left">数量</th>
-                  <th class="px-4 py-3 text-right">合计（人民币）</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100"></tbody>
-            </table>
-          </div>
-          <div class="mt-8 p-5 rounded-2xl bg-amber-50 border border-amber-200 text-sm text-amber-900 flex gap-3">
-            <i class="fa-solid fa-circle-info text-xl mt-1"></i>
-            <div>
-              <p class="font-bold mb-1">价格小贴士</p>
-              <p>以上为中档舒适标准参考价（2025 年 5 月旺季前）。五一假期会上浮 10-20%，建议提前预订景点票、游船、SPA；多人同行可砍价。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 贴士 -->
-    <section id="tips" class="py-20 px-6 bg-gradient-to-br from-slate-50 to-white">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-          <p class="text-thai-teal font-semibold tracking-widest text-sm mb-2">USEFUL TIPS</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">出行必备 · 实用贴士</h2>
-          <div class="w-20 h-1 bg-thai-teal mx-auto"></div>
-        </div>
-
-        <div id="tipsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14"></div>
-
-        <!-- 父母关怀 -->
-        <div class="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-100 rounded-3xl p-8 md:p-10 mb-14">
-          <h3 class="font-serif text-2xl font-bold mb-6 flex items-center gap-2">
-            <i class="fa-solid fa-heart-pulse text-pink-500"></i>父母关怀清单（58 岁）
-          </h3>
-          <div id="parentCareList" class="grid md:grid-cols-2 gap-4"></div>
-        </div>
-
-        <!-- 必备物品清单 -->
-        <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 mb-14">
-          <h3 class="font-serif text-2xl font-bold mb-6 flex items-center gap-2">
-            <i class="fa-solid fa-list-check text-thai-gold"></i>出行必带清单
-          </h3>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="packingList"></div>
-        </div>
-
-        <!-- 常用泰语 -->
-        <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10">
-          <h3 class="font-serif text-2xl font-bold mb-6 flex items-center gap-2">
-            <i class="fa-solid fa-language text-thai-red"></i>救急用语一句话
-          </h3>
-          <div id="phraseGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="bg-thai-ink text-white pt-16 pb-8 px-6">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-10 mb-10">
-          <div class="md:col-span-2">
-            <div class="flex items-center gap-2 mb-4">
-              <i class="fa-solid fa-plane-departure text-thai-gold text-2xl"></i>
-              <span class="font-serif text-xl font-bold">港泰家庭旅行</span>
-            </div>
-            <p class="text-white/60 leading-relaxed text-sm">
-              为一家四口量身定制的 5 日游攻略：香港一日 + 曼谷两日 + 普吉岛两日。愿你们的旅程慢下来，享受相伴的每一刻。
-            </p>
-          </div>
-          <div>
-            <h4 class="font-bold mb-4">快速导航</h4>
-            <ul class="space-y-2 text-sm text-white/60">
-              <li><a href="#overview" class="hover:text-thai-gold transition">行程总览</a></li>
-              <li><a href="#flights" class="hover:text-thai-gold transition">机票 / 住宿</a></li>
-              <li><a href="#bangkok" class="hover:text-thai-gold transition">曼谷</a></li>
-              <li><a href="#phuket" class="hover:text-thai-gold transition">普吉岛</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold mb-4">紧急联系</h4>
-            <ul class="space-y-2 text-sm text-white/60">
-              <li><i class="fa-solid fa-phone mr-2 text-thai-gold"></i>中国驻泰使馆: +66-2-245-7044</li>
-              <li><i class="fa-solid fa-phone mr-2 text-thai-gold"></i>泰国旅游警察: 1155</li>
-              <li><i class="fa-solid fa-ambulance mr-2 text-thai-gold"></i>泰国急救: 1669</li>
-              <li><i class="fa-solid fa-phone mr-2 text-thai-gold"></i>香港求救: 999</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pt-8 border-t border-white/10 text-center text-sm text-white/50">
-          <p class="mb-2">© 2025 港泰家庭旅行 · 为爱出发</p>
-          <p>由 <a href="https://with.woa.com/" style="color: #8A2BE2;" target="_blank">With</a> 通过自然语言生成</p>
-        </div>
-      </div>
-    </footer>
-
-    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-thai-gold text-white shadow-xl opacity-0 invisible transition hover:bg-thai-deepgold z-40">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <script type="module" src="./main.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
